@@ -25,8 +25,6 @@ public class LoginController {
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public ModelAndView showLogin(HttpServletRequest request, HttpServletResponse response) {
 		
-		
-		
 		ModelAndView mav = new ModelAndView("login");
 		mav.addObject("login", new Login());
 		return mav;
@@ -38,8 +36,8 @@ public class LoginController {
 		User user = userService.validateUser(login);
 		if (null != user) {
 			
-			if(logger.isInfoEnabled()){                         //log4j
-				logger.info("This is info : " + user);
+			if(logger.isDebugEnabled()){                         //log4j
+				logger.debug("This is info : *************************************" + user);
 			}
 			
 			mav = new ModelAndView("welcome");

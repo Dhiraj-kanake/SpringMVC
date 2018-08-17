@@ -39,6 +39,9 @@
             <td>
                 <form:input path="firstname" name="firstname" id="firstname"/>
             </td>
+             <td>
+                <form:errors path="firstname" />
+            </td>
         </tr>
         <tr>
             <td>
@@ -46,6 +49,9 @@
             </td>
             <td>
                 <form:input path="lastname" name="lastname" id="lastname"/>
+            </td>
+             <td>
+                <form:errors path="lastname" />
             </td>
         </tr>
         <tr>
@@ -66,7 +72,9 @@
             <td>
                 <form:input path="address" name="address" id="address"/>
             </td>
-            
+             <td>
+                <form:errors path="address" />
+            </td>
         </tr>
         <tr>
             <td>
@@ -74,6 +82,9 @@
             </td>
             <td>
                 <form:input path="phone" name="phone" id="phone"/>
+            </td>
+             <td>
+                <form:errors path="phone" />
             </td>
         </tr>
         <tr>
