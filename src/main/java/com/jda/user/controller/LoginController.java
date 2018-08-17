@@ -3,6 +3,8 @@ package com.jda.user.controller;
 import com.jda.user.model.Login;
 import com.jda.user.model.User;
 import com.jda.user.service.UserService;
+
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -17,8 +19,14 @@ import javax.servlet.http.HttpServletResponse;
 public class LoginController {
 	@Autowired
 	UserService userService;
+	//log4j
+	final static Logger logger = Logger.getLogger(LoginController.class);             //log4j
+	
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public ModelAndView showLogin(HttpServletRequest request, HttpServletResponse response) {
+		
+		
+		
 		ModelAndView mav = new ModelAndView("login");
 		mav.addObject("login", new Login());
 		return mav;
@@ -29,6 +37,11 @@ public class LoginController {
 		ModelAndView mav = null;
 		User user = userService.validateUser(login);
 		if (null != user) {
+			
+			if(logger.isInfoEnabled()){                         //log4j
+				logger.info("This is info : " + user);
+			}
+			
 			mav = new ModelAndView("welcome");
 			mav.addObject("firstname", user.getFirstname());
 		} else {

@@ -17,6 +17,9 @@
             <td>
                 <form:input path="username" name="username" id="username"/>
             </td>
+             <td>
+                <form:errors path="username" />
+            </td>
         </tr>
         <tr>
             <td>
@@ -25,7 +28,9 @@
             <td>
                 <form:password path="password" name="password" id="password"/>
             </td>
-           
+            <td>
+                <form:errors path="password" />
+            </td>
         </tr>
         <tr>
             <td>
@@ -61,6 +66,7 @@
             <td>
                 <form:input path="address" name="address" id="address"/>
             </td>
+            
         </tr>
         <tr>
             <td>
