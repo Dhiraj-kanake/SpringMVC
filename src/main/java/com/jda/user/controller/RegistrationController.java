@@ -1,6 +1,7 @@
 package com.jda.user.controller;
 
 import com.jda.user.model.User;
+import com.jda.user.service.MailService;
 import com.jda.user.service.UserService;
 import com.jda.user.validator.UserValidator;
 
@@ -23,6 +24,8 @@ public class RegistrationController {
 	public UserService userService;
 	@Autowired
 	UserValidator userValidator;
+	@Autowired
+	//private MailService mailService; 
 	@RequestMapping(value = "/register", method = RequestMethod.GET)
 	public ModelAndView showRegister(HttpServletRequest request, HttpServletResponse response) {
 		ModelAndView mav = new ModelAndView("register");

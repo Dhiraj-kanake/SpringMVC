@@ -16,4 +16,11 @@ public class UserServiceImpl implements UserService {
 	public User validateUser(Login login) {
 		return userDao.validateUser(login);
 	}
+	public User findByEmail(String email) {
+		return userDao.findByEmail(email);
+	}
+	public void saveUser(User user) {
+		 userDao.saveUser(user);
+	}
+	
 }

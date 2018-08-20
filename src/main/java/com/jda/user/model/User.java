@@ -6,7 +6,7 @@ import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
 
 public class User {
-	
+	private String token;
 	private String username;
 	private String password;
 	private String firstname;
@@ -16,6 +16,7 @@ public class User {
 	private String phone;
 	public String toString() {
 		return "User{" +
+				"token='" + token + '\'' +
 				"username='" + username + '\'' +
 				", password='" + password + '\'' +
 				", firstname='" + firstname + '\'' +
@@ -80,5 +81,12 @@ public class User {
 
 	public void setPhone(String phone) {
 		this.phone = phone;
+	}
+	public String getToken() {
+		return token;
+	}
+
+	public void setToken(String token) {
+		this.token = token;
 	}
 }

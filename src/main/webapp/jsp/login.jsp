@@ -36,9 +36,12 @@
             <td></td>
             <td><a href="home.jsp">Home</a>
             </td>
+             <td><a href="forgot">Forgot Password</a>
         </tr>
+				
     </table>
 </form:form>
+
 <table align="center">
     <tr>
         <td style="font-style: italic; color: red;">${message}</td>
