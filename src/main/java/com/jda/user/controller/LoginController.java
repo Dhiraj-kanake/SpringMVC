@@ -6,6 +6,7 @@ import com.jda.user.service.UserService;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -34,14 +35,15 @@ public class LoginController {
 	                                 @ModelAttribute("login") Login login) {
 		ModelAndView mav = null;
 		User user = userService.validateUser(login);
+		
 		if (null != user) {
-			
-			if(logger.isDebugEnabled()){                         //log4j
-				logger.debug("This is info : *************************************" + user);
+			BCryptPasswordEncoder pwdEncoder=new BCryptPasswordEncoder();
+			if(pwdEncoder.matches(login.getPassword(),user.getPassword()))
+			{
+				mav = new ModelAndView("welcome");
+				mav.addObject("firstname", user.getFirstname());
 			}
 			
-			mav = new ModelAndView("welcome");
-			mav.addObject("firstname", user.getFirstname());
 		} else {
 			mav = new ModelAndView("login");
 			mav.addObject("message", "Username or Password is wrong!!");

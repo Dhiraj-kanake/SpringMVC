@@ -10,4 +10,6 @@ public interface UserDao {
 	
  User findByEmail(String email);
  void saveUser(User user);
+ void savePassword(User user);
+User findByToken(String token);
 }

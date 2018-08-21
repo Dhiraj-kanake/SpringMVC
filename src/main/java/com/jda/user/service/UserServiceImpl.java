@@ -19,8 +19,13 @@ public class UserServiceImpl implements UserService {
 	public User findByEmail(String email) {
 		return userDao.findByEmail(email);
 	}
+	public User findByToken(String token) {
+		return userDao.findByToken(token);
+	}
 	public void saveUser(User user) {
 		 userDao.saveUser(user);
 	}
-	
+	public void savePassword(User user) {
+		 userDao.savePassword(user);
+	}
 }
